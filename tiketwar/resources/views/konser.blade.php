@@ -11,6 +11,7 @@
                 <th>Kota</th>
                 <th>Harga</th>
                 <th>Sisa</th>
+                <th>Tanggal</th>
                 <th>Status</th>
                 <th>Aksi</th>
             </tr>
@@ -23,6 +24,7 @@
                     <td>{{ $konser['kota'] }}</td>
                     <td>Rp{{ number_format($konser['harga'], 0, ',', '.') }}</td>
                     <td>{{ $konser['sisa'] }}</td>
+                    <td>{{ date('d-m-Y', strtotime($konser['tanggal'])) }}</td>
                     <td>
                         @if ($konser['sisa'] > 10)
                             <span class="badge bg-success">Tersedia</span>
