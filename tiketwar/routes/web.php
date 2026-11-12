@@ -20,3 +20,9 @@ Route::get('/konser/create', [KonserController::class, 'create'])
     ->name('konser.create');
 
 Route::post('/konser', [KonserController::class, 'store'])->name('konser.store');
+
+Route::get('/konser/{id}/edit', [KonserController::class, 'edit'])
+    ->whereNumber('id')->name('konser.edit');
+
+Route::put('/konser/{id}', [KonserController::class, 'update'])
+    ->whereNumber('id')->name('konser.update');
