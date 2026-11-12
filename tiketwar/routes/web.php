@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\KonserController; // BARU
+use App\Http\Controllers\KonserController;
+use App\Http\Controllers\PromotorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,7 +10,6 @@ Route::get('/', function () {
 
 Route::view('/tentang', 'about')->name('tentang');
 
-// DIUBAH: dua route di bawah kini menunjuk ke KonserController
 Route::get('/konser', [KonserController::class, 'index'])->name('konser.index');
 
 Route::get('/konser/{id}', [KonserController::class, 'show'])
@@ -29,3 +29,5 @@ Route::put('/konser/{id}', [KonserController::class, 'update'])
 
 Route::delete('/konser/{id}', [KonserController::class, 'destroy'])
     ->whereNumber('id')->name('konser.destroy');
+
+Route::get('/promotor', [PromotorController::class, 'index'])->name('promotor.index');
