@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KonserController;
 use App\Http\Controllers\PromotorController;
+use App\Http\Controllers\PesananController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,3 +32,9 @@ Route::delete('/konser/{id}', [KonserController::class, 'destroy'])
     ->whereNumber('id')->name('konser.destroy');
 
 Route::get('/promotor', [PromotorController::class, 'index'])->name('promotor.index');
+
+Route::get('/konser/{konser}/pesan', [PesananController::class, 'create'])
+    ->whereNumber('konser')->name('pesanan.create');
+    
+Route::post('/konser/{konser}/pesan', [PesananController::class, 'store'])
+    ->whereNumber('konser')->name('pesanan.store');
