@@ -4,6 +4,7 @@ use App\Http\Controllers\KonserController;
 use App\Http\Controllers\PromotorController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -52,3 +53,16 @@ Route::patch('/pesanan/{pesanan}/batal', [PesananController::class, 'batal'])
 Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
 
 Route::get('/laporan/pdf', [LaporanController::class, 'pdf'])->name('laporan.pdf');
+
+// Login dan logout admin
+Route::get('/login', [AuthController::class, 'showLogin'])
+    ->middleware('guest')
+    ->name('login');
+
+Route::post('/login', [AuthController::class, 'login'])
+    ->middleware('guest')
+    ->name('login.proses');
+
+Route::post('/logout', [AuthController::class, 'logout'])
+    ->middleware('auth')
+    ->name('logout');
