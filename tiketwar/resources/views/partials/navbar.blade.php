@@ -11,6 +11,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('tentang') }}">Tentang</a>
             </li>
+        @auth
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('pesanan.index') }}">
                     Pesanan
@@ -22,7 +23,7 @@
                     Laporan
                 </a>
             </li>
-        </ul>
+        @endauth
         <ul class="navbar-nav ms-auto">
             @auth
                 <li class="nav-item d-flex align-items-center me-2">
