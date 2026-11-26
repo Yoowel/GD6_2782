@@ -11,6 +11,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('tentang') }}">Tentang</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('pesanan.index') }}">
+                    Pesanan
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
