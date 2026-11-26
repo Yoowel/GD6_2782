@@ -34,3 +34,7 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('api.admin.pesanan.index');
 
 });
+
+Route::post('/login', [TokenController::class, 'store'])
+    ->middleware('throttle:login')
+    ->name('api.login');
